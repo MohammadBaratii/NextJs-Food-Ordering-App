@@ -15,7 +15,7 @@ body {
 @layer components {
   /* general */
   .wrapper {
-    @apply max-w-5xl m-auto p-5;
+    @apply container m-auto p-5;
   }
   header.active {
     animation: drop 0.4s forwards;

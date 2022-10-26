@@ -11,7 +11,7 @@ const Hero = () => {
             consequuntur maxime asperiores. <br /> Et animi maxime, unde
             voluptates blanditiis.
           </p>
-          <button className="flex items-center gap-2 p-5 py-2 bg-primary text-white rounded-full duration-150 hover:gap-4">
+          <button className="flex items-center gap-2 p-5 py-2 bg-primary text-white rounded-full duration-300 hover:gap-4">
             Order Now
             <svg
               xmlns="http://www.w3.org/2000/svg"

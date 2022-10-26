@@ -20,7 +20,7 @@ const Navbar = () => {
         "active sticky top-0 left-0 bg-gradient-to-r from-primary-2 to-primary shadow-lg shadow-black/20 z-10"
       }
     >
-      <nav className="wrapper flex justify-between">
+      <nav className={`wrapper flex justify-between duration-500`}>
         <h1
           className={`${
             activeNavbar && "text-primary"

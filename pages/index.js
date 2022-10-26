@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import PizzaList from "../components/PizzaList";
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
       </div>
       <Navbar />
       <Hero />
+      <PizzaList />
     </div>
   );
 };
