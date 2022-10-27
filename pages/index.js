@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import PizzaList from "../components/PizzaList";
@@ -28,6 +29,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <PizzaList />
+      <Footer />
     </div>
   );
 };
