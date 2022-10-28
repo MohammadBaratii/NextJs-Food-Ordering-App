@@ -20,12 +20,30 @@ body {
   header.active {
     animation: drop 0.4s forwards;
   }
+
   @keyframes drop {
     from {
       transform: translateY(-100%);
     }
     to {
       transform: translateY(0%);
+    }
+  }
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    80% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 }
