@@ -21,8 +21,6 @@ const ProductDetail = () => {
         className="max-w-xs m-auto md:m-0"
       />
       <div className="grid gap-3 max-w-2xl">
-        {/* <div className="flex justify-between items-center">
-          </div> */}
         <h3 className="font-bold">{pizza.name}</h3>
         <p className="text-neutral-600 text-base">{pizza.description}</p>
         <p
