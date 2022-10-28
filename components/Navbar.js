@@ -16,19 +16,20 @@ const Navbar = () => {
   return (
     <header
       className={
-        activeNavbar &&
-        "active sticky top-0 left-0 bg-gradient-to-r from-primary-2 to-primary shadow-lg shadow-black/20 z-10"
+        activeNavbar
+          ? "active sticky top-0 left-0 bg-gradient-to-r from-primary-2 to-primary shadow-lg shadow-black/20 z-10"
+          : undefined
       }
     >
       <nav className={`wrapper flex justify-between p-4`}>
         <h1
           className={`${
-            activeNavbar && "text-primary"
+            activeNavbar ? "text-primary" : undefined
           } text-3xl font-bold sm:text-4xl`}
         >
           LOGO
         </h1>
-        <ul className="flex items-center gap-5">
+        <ul className="flex items-center gap-3 sm:gap-5">
           <li>Home</li>
           <li>Menu</li>
           <li>Contact</li>

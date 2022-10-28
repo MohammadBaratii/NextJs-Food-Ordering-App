@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const PizzaItem = () => {
   return (
     <li className="grid gap-1 max-w-md m-auto p-3 bg-gray-200  rounded-md">
@@ -9,12 +11,14 @@ const PizzaItem = () => {
       <p className="text-neutral-600 text-base">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste, labore.
       </p>
-      <button
-        className="block ml-auto p-5 py-1 bg-rose-400 text-white rounded-full transition text-lg hover:bg-primary
-      "
-      >
-        Order
-      </button>
+      <Link href="/product/1">
+        <a
+          className="block ml-auto p-5 py-1 bg-rose-400 text-white rounded-full transition text-lg hover:bg-primary
+        "
+        >
+          Order
+        </a>
+      </Link>
     </li>
   );
 };

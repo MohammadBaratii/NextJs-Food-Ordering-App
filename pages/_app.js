@@ -1,7 +1,21 @@
-import '../styles/globals.css'
+import { useRouter } from "next/router";
+import Layout from "../components/Layout";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const { asPath } = useRouter();
+
+  // this is because if i use the Layout component in general, the Navbar and the Svg in index page get messed up.
+  // Therefore i use Navbar directly in index page so they don't ruin anything.
+  if (asPath === "/") {
+    return <Component {...pageProps} />;
+  }
+
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
-export default MyApp
+export default MyApp;
