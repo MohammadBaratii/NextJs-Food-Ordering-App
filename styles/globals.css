@@ -20,7 +20,9 @@ body {
   header.active {
     animation: drop 0.4s forwards;
   }
-
+  .cart-items li:nth-child(even) {
+    @apply bg-neutral-200;
+  }
   @keyframes drop {
     from {
       transform: translateY(-100%);
