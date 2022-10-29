@@ -27,7 +27,11 @@ const Navbar = () => {
       <nav className={`wrapper flex justify-between p-4`}>
         <h1
           className={`${
-            activeNavbar ? "text-primary" : undefined
+            activeNavbar
+              ? "text-primary"
+              : asPath !== "/"
+              ? "text-primary"
+              : undefined
           } text-3xl font-bold sm:text-4xl`}
         >
           LOGO

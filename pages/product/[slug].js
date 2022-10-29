@@ -14,24 +14,26 @@ const ProductDetail = () => {
   };
 
   return (
-    <section className="wrapper flex flex-col justify-center items-center gap-5 md:flex-row md:gap-20">
+    <section className="wrapper max-w-6xl flex flex-col justify-center items-center gap-5 md:flex-row md:gap-20">
       <img
         src={pizza.image}
         alt={pizza.name}
         className="max-w-xs m-auto md:m-0"
       />
-      <div className="grid gap-3 max-w-2xl">
-        <h3 className="font-bold">{pizza.name}</h3>
-        <p className="text-neutral-600 text-base">{pizza.description}</p>
-        <p
-          className="w-fit p-2 py-1 bg-rose-500 text-white rounded-full text-base"
-          ref={priceRef}
-        >
-          ${pizza.price[priceIndex]}
-        </p>
-        <div className="mt-4">
-          <p className="mb-2 text-center">Choose a size</p>
-          <div className="flex justify-evenly">
+      <div className="grid gap-8 max-w-2xl sm:gap-4 md:gap-8">
+        <div className="grid gap-3">
+          <h3 className="font-bold">{pizza.name}</h3>
+          <p className="text-neutral-600 text-base">{pizza.description}</p>
+          <p
+            className="w-fit p-2 py-1 bg-rose-500 text-white rounded-full text-base"
+            ref={priceRef}
+          >
+            ${pizza.price[priceIndex]}
+          </p>
+        </div>
+        <div>
+          <p className="mb-1 text-center md:text-start">Choose a size</p>
+          <div className="flex justify-evenly md:justify-start md:gap-8">
             {pizza.price.map((_, index) => {
               return (
                 <button
@@ -63,6 +65,37 @@ const ProductDetail = () => {
               );
             })}
           </div>
+        </div>
+        <div>
+          <p className="mb-1 text-center md:text-start">
+            Additional Ingredients
+          </p>
+          <div className="flex flex-col justify-evenly items-center sm:flex-row md:justify-start md:gap-8">
+            <label className="flex items-center gap-1 p-1 text-base cursor-pointer">
+              <input type="checkbox" />
+              <span>Extra Cheese</span>
+            </label>
+            <label className="flex items-center gap-1 p-1 text-base cursor-pointer">
+              <input type="checkbox" />
+              <span>Spicy Sauce</span>
+            </label>
+            <label className="flex items-center gap-1 p-1 text-base cursor-pointer">
+              <input type="checkbox" />
+              <span>Garlic Sauce</span>
+            </label>
+          </div>
+        </div>
+        <div className="flex justify-center gap-2 md:justify-start">
+          <input
+            type="number"
+            step={1}
+            min={1}
+            defaultValue={1}
+            className="w-12 p-1 py-0 border border-neutral-400 rounded outline-primary/70"
+          />
+          <button className="p-2 py-1 bg-primary text-white rounded-md">
+            Add To Cart
+          </button>
         </div>
       </div>
     </section>
