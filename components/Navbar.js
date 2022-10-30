@@ -19,7 +19,7 @@ const Navbar = () => {
     <header
       className={
         activeNavbar
-          ? "active sticky top-0 left-0 bg-gradient-to-r from-primary-2 to-primary shadow-lg shadow-black/20 z-10"
+          ? "sticky top-0 left-0 bg-gradient-to-r from-primary-2 to-primary shadow-lg shadow-black/20 z-10 animate-[drop_0.4s_forwards]"
           : asPath !== "/"
           ? "bg-gradient-to-r from-primary-2 to-primary"
           : undefined

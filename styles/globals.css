@@ -17,9 +17,6 @@ body {
   .wrapper {
     @apply container m-auto p-5;
   }
-  header.active {
-    animation: drop 0.4s forwards;
-  }
   .cart-items li:nth-child(even) {
     @apply bg-neutral-200;
   }
