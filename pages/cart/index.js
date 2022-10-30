@@ -1,6 +1,6 @@
 const Cart = () => {
   return (
-    <section className="wrapper flex flex-col gap-3 sm:flex-row">
+    <section className="wrapper flex flex-col gap-3 py-14 sm:flex-row">
       <ul className="cart-items flex-1 text-base text-neutral-500">
         <li className="flex justify-evenly items-center py-2 sm:justify-between">
           <img src="./images/pizza.png" alt="pizza" className="w-20" />
