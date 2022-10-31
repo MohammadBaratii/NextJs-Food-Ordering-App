@@ -1,17 +1,15 @@
 import Link from "next/link";
 
-const PizzaItem = () => {
+const PizzaItem = ({ _id, img, title, desc, prices }) => {
   return (
     <li className="grid gap-1 max-w-md m-auto p-3 bg-gray-200  rounded-md">
-      <img src="./images/pizza.png" alt="pizza" className="m-auto" />
+      <img src={img} alt={title} className="m-auto" />
       <div className="flex justify-between items-center">
-        <h3 className="font-bold">Pepperoni Pizza</h3>
-        <p className="text-rose-500 text-base">$18.99</p>
+        <h3 className="font-bold">{title}</h3>
+        <p className="text-rose-500 text-base">${prices[0]}</p>
       </div>
-      <p className="text-neutral-600 text-base">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste, labore.
-      </p>
-      <Link href="/product/1">
+      <p className="text-neutral-600 text-base">{desc}</p>
+      <Link href={`/product/${_id}`}>
         <a
           className="block ml-auto p-5 py-1 bg-rose-400 text-white rounded-full transition text-lg hover:bg-primary
         "

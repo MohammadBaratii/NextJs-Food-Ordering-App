@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import PizzaList from "../components/PizzaList";
 
-const Home = () => {
+const Home = ({ pizzas }) => {
   return (
     <div>
       <Head>
@@ -28,10 +28,21 @@ const Home = () => {
       </div>
       <Navbar />
       <Hero />
-      <PizzaList />
+      <PizzaList pizzas={pizzas} />
       <Footer />
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:3000/api/products");
+  const data = await res.json();
+
+  return {
+    props: {
+      pizzas: data.products,
+    },
+  };
+}
 
 export default Home;

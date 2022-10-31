@@ -1,6 +1,6 @@
 import PizzaItem from "./PizzaItem";
 
-const PizzaList = () => {
+const PizzaList = ({ pizzas }) => {
   return (
     <section className="wrapper mt-5">
       <h2 className="flex justify-center items-center mb-4 text-3xl">
@@ -21,15 +21,9 @@ const PizzaList = () => {
         </svg>
       </h2>
       <ul className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
-        <PizzaItem />
+        {pizzas.map((pizza) => {
+          return <PizzaItem key={pizza._id} {...pizza} />;
+        })}
       </ul>
     </section>
   );
