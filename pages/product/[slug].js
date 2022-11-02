@@ -1,40 +1,59 @@
 import { useRef, useState } from "react";
 
-const ProductDetail = () => {
+const ProductDetail = ({ pizza }) => {
   const [priceIndex, setPriceIndex] = useState(0);
+  const [finalPrice, setFinalPrice] = useState(pizza.prices[0]);
   const priceRef = useRef();
 
-  const pizza = {
-    id: 1,
-    image: "../images/pizza.png",
-    name: "Pepperoni",
-    price: [18.99, 23.55, 26.99],
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam cumque voluptatum, rem doloremque magnam facere expedita eum, explicabo debitis voluptates accusamus accusantium quasi. Mollitia repellendus a nam voluptatibus ea alias!",
+  const changePrice = (num) => {
+    setFinalPrice(finalPrice + num);
+  };
+
+  const handleSize = (index) => {
+    const difference = pizza.prices[index] - pizza.prices[priceIndex];
+    setPriceIndex(index);
+    changePrice(difference);
+  };
+
+  const handleAdditionalIngredients = (e, item) => {
+    handleAnimatePrice();
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      changePrice(item.price);
+    } else {
+      changePrice(-item.price);
+    }
+  };
+
+  const handleAnimatePrice = () => {
+    priceRef.current.style.animation = "none";
+    setTimeout(() => {
+      priceRef.current.style.animation = "bump 0.6s forwards";
+    }, 0);
   };
 
   return (
     <section className="wrapper max-w-6xl flex flex-col justify-center items-center gap-5 md:flex-row md:gap-20">
       <img
-        src={pizza.image}
-        alt={pizza.name}
+        src={pizza.img}
+        alt={pizza.title}
         className="max-w-xs m-auto md:m-0"
       />
       <div className="grid gap-8 max-w-2xl sm:gap-4 md:gap-8">
         <div className="grid gap-3">
-          <h3 className="font-bold">{pizza.name}</h3>
-          <p className="text-neutral-600 text-base">{pizza.description}</p>
+          <h3 className="font-bold">{pizza.title}</h3>
+          <p className="text-neutral-600 text-base">{pizza.desc}</p>
           <p
             className="w-fit p-2 py-1 bg-rose-500 text-white rounded-full text-base"
             ref={priceRef}
           >
-            ${pizza.price[priceIndex]}
+            ${finalPrice}
           </p>
         </div>
         <div>
           <p className="mb-1 text-center md:text-start">Choose a size</p>
           <div className="flex justify-evenly md:justify-start md:gap-8">
-            {pizza.price.map((_, index) => {
+            {pizza.prices.map((_, index) => {
               return (
                 <button
                   key={index}
@@ -44,11 +63,8 @@ const ProductDetail = () => {
                       : undefined
                   } grid justify-items-center items-start w-24 p-2 rounded-lg transition hover:bg-primary/30`}
                   onClick={() => {
-                    setPriceIndex(index);
-                    priceRef.current.style.animation = "none";
-                    setTimeout(() => {
-                      priceRef.current.style.animation = "bump 0.6s forwards";
-                    }, 0);
+                    handleSize(index);
+                    handleAnimatePrice();
                   }}
                 >
                   <span className="text-teal-600 text-base">
@@ -71,18 +87,20 @@ const ProductDetail = () => {
             Additional Ingredients
           </p>
           <div className="flex flex-col justify-evenly items-center sm:flex-row md:justify-start md:gap-8">
-            <label className="flex items-center gap-1 p-1 text-base cursor-pointer">
-              <input type="checkbox" />
-              <span>Extra Cheese</span>
-            </label>
-            <label className="flex items-center gap-1 p-1 text-base cursor-pointer">
-              <input type="checkbox" />
-              <span>Spicy Sauce</span>
-            </label>
-            <label className="flex items-center gap-1 p-1 text-base cursor-pointer">
-              <input type="checkbox" />
-              <span>Garlic Sauce</span>
-            </label>
+            {pizza.extras.map((item) => {
+              return (
+                <label
+                  key={item._id}
+                  className="flex items-center gap-1 p-1 text-base cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    onChange={(e) => handleAdditionalIngredients(e, item)}
+                  />
+                  <span>{item.text}</span>
+                </label>
+              );
+            })}
           </div>
         </div>
         <div className="flex justify-center gap-2 md:justify-start">
@@ -100,6 +118,35 @@ const ProductDetail = () => {
       </div>
     </section>
   );
+};
+
+export const getStaticProps = async ({ params: { slug } }) => {
+  const response = await fetch(`http://localhost:3000/api/products/${slug}`);
+  const data = await response.json();
+
+  return {
+    props: {
+      pizza: data.product,
+    },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const response = await fetch("http://localhost:3000/api/products");
+  const data = await response.json();
+
+  const paths = data.products.map((item) => {
+    return {
+      params: {
+        slug: item._id,
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
 };
 
 export default ProductDetail;

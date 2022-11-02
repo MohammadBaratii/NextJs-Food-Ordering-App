@@ -21,9 +21,10 @@ const PizzaList = ({ pizzas }) => {
         </svg>
       </h2>
       <ul className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-        {pizzas.map((pizza) => {
-          return <PizzaItem key={pizza._id} {...pizza} />;
-        })}
+        {pizzas &&
+          pizzas.map((pizza) => {
+            return <PizzaItem key={pizza._id} {...pizza} />;
+          })}
       </ul>
     </section>
   );
