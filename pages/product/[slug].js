@@ -1,9 +1,15 @@
 import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../store/cartSlice";
 
 const ProductDetail = ({ pizza }) => {
   const [priceIndex, setPriceIndex] = useState(0);
+  const [extras, setExtras] = useState([]);
+  const [amount, setAmount] = useState(1);
+
   const [finalPrice, setFinalPrice] = useState(pizza.prices[0]);
   const priceRef = useRef();
+  const dispatch = useDispatch();
 
   const changePrice = (num) => {
     setFinalPrice(finalPrice + num);
@@ -20,8 +26,10 @@ const ProductDetail = ({ pizza }) => {
     const isChecked = e.target.checked;
     if (isChecked) {
       changePrice(item.price);
+      setExtras((prev) => [...prev, item]);
     } else {
       changePrice(-item.price);
+      setExtras((prev) => prev.filter((extra) => extra._id !== item._id));
     }
   };
 
@@ -30,6 +38,17 @@ const ProductDetail = ({ pizza }) => {
     setTimeout(() => {
       priceRef.current.style.animation = "bump 0.6s forwards";
     }, 0);
+  };
+
+  const handleAddToCart = () => {
+    dispatch(
+      addProduct({
+        title: pizza.title,
+        price: finalPrice,
+        extras,
+        amount,
+      })
+    );
   };
 
   return (
@@ -106,12 +125,16 @@ const ProductDetail = ({ pizza }) => {
         <div className="flex justify-center gap-2 md:justify-start">
           <input
             type="number"
+            className="w-12 p-1 py-0 border border-neutral-400 rounded outline-primary/70"
             step={1}
             min={1}
-            defaultValue={1}
-            className="w-12 p-1 py-0 border border-neutral-400 rounded outline-primary/70"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
           />
-          <button className="p-2 py-1 bg-primary text-white rounded-md">
+          <button
+            className="p-2 py-1 bg-primary text-white rounded-md"
+            onClick={handleAddToCart}
+          >
             Add To Cart
           </button>
         </div>
