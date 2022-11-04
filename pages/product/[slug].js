@@ -4,6 +4,7 @@ import { addProduct } from "../../store/cartSlice";
 
 const ProductDetail = ({ pizza }) => {
   const [priceIndex, setPriceIndex] = useState(0);
+  const [success, setSuccess] = useState(false);
   const [extras, setExtras] = useState([]);
   const [amount, setAmount] = useState(1);
 
@@ -41,14 +42,20 @@ const ProductDetail = ({ pizza }) => {
   };
 
   const handleAddToCart = () => {
+    setSuccess(true);
     dispatch(
       addProduct({
+        _id: pizza._id,
         title: pizza.title,
+        img: pizza.img,
         price: finalPrice,
+        amount: +amount,
         extras,
-        amount,
       })
     );
+    setTimeout(() => {
+      setSuccess(false);
+    }, 3000);
   };
 
   return (
@@ -122,10 +129,10 @@ const ProductDetail = ({ pizza }) => {
             })}
           </div>
         </div>
-        <div className="flex justify-center gap-2 md:justify-start">
+        <div className="flex justify-center items-center gap-2 md:justify-start">
           <input
             type="number"
-            className="w-12 p-1 py-0 border border-neutral-400 rounded outline-primary/70"
+            className="w-12 p-1 ring-1 ring-neutral-400 ring-inset rounded outline-primary/70"
             step={1}
             min={1}
             value={amount}
@@ -137,6 +144,9 @@ const ProductDetail = ({ pizza }) => {
           >
             Add To Cart
           </button>
+          {success && (
+            <p className="text-emerald-600">Added to cart successfully!</p>
+          )}
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [activeNavbar, setActiveNavbar] = useState(false);
-  const amount = useSelector((state) => state.cart.amount);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   useEffect(() => {
     const changeNavbarStyle = () => {
@@ -47,7 +47,7 @@ const Navbar = () => {
             <Link href="/cart">
               <a>
                 <span className="absolute -top-3 -right-3 p-1 grid place-content-center bg-white min-w-[1.5rem] h-[1.5rem] rounded-full">
-                  {amount}
+                  {totalAmount}
                 </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
