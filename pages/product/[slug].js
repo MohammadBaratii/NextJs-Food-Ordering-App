@@ -129,23 +129,27 @@ const ProductDetail = ({ pizza }) => {
             })}
           </div>
         </div>
-        <div className="flex justify-center items-center gap-2 md:justify-start">
-          <input
-            type="number"
-            className="w-12 p-1 ring-1 ring-neutral-400 ring-inset rounded outline-primary/70"
-            step={1}
-            min={1}
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-          <button
-            className="p-2 py-1 bg-primary text-white rounded-md"
-            onClick={handleAddToCart}
-          >
-            Add To Cart
-          </button>
+        <div className="grid gap-1">
+          <div className="flex justify-center items-center gap-2 md:justify-start">
+            <input
+              type="number"
+              className="w-12 p-1 ring-1 ring-neutral-400 ring-inset rounded outline-primary/70"
+              step={1}
+              min={1}
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            <button
+              className="p-2 py-1 bg-primary text-white rounded-md"
+              onClick={handleAddToCart}
+            >
+              Add To Cart
+            </button>
+          </div>
           {success && (
-            <p className="text-emerald-600">Added to cart successfully!</p>
+            <p className="text-emerald-600 text-center md:text-start">
+              Added to cart successfully!
+            </p>
           )}
         </div>
       </div>

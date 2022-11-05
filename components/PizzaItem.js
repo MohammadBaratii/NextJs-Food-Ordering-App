@@ -11,7 +11,7 @@ const PizzaItem = ({ _id, img, title, desc, prices }) => {
       <p className="text-neutral-600 text-base">{desc}</p>
       <Link href={`/product/${_id}`}>
         <a
-          className="block ml-auto p-5 py-1 bg-rose-400 text-white rounded-full transition text-lg hover:bg-primary
+          className="block ml-auto p-5 py-1 bg-rose-500 text-white rounded-full transition text-lg hover:bg-rose-400
         "
         >
           Order

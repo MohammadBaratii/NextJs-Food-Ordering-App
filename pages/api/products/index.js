@@ -2,7 +2,7 @@ import dbConnect from "../../../lib/mongo";
 import Product from "../../../models/Product";
 
 export default async function handler(req, res) {
-  dbConnect();
+  await dbConnect();
 
   if (req.method === "GET") {
     try {
