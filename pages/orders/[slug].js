@@ -20,7 +20,7 @@ const Orders = () => {
         </ul>
         <ul className="sm:grid sm:grid-cols-2 md:grid-cols-4">
           <li className="grid justify-items-center my-4 sm:my-2 md:my-4">
-            <img src="./images/paid.png" alt="paid" className="w-10" />
+            <img src="/images/paid.png" alt="paid" className="w-10" />
             <span className="text-base text-neutral-600">Payment</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -36,12 +36,12 @@ const Orders = () => {
             </svg>
           </li>
           <li className="grid justify-items-center my-4 animate-[blink_1.5s_linear_infinite] sm:my-2 md:my-4">
-            <img src="./images/bake.png" alt="baking" className="w-10" />
+            <img src="/images/bake.png" alt="baking" className="w-10" />
             <span className="text-base text-neutral-600">Preparing</span>
           </li>
           <li className="grid justify-items-center my-4 sm:my-2 md:my-4">
             <img
-              src="./images/bike.png"
+              src="/images/bike.png"
               alt="motorbike"
               className="w-10 opacity-30"
             />
@@ -49,7 +49,7 @@ const Orders = () => {
           </li>
           <li className="grid justify-items-center my-4 sm:my-2 md:my-4">
             <img
-              src="./images/delivered.png"
+              src="/images/delivered.png"
               alt="delivered"
               className="w-10 opacity-30"
             />
