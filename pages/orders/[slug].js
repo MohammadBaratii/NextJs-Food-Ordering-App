@@ -1,21 +1,48 @@
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { useEffect } from "react";
+
 const Orders = () => {
+  const [orderData, setOrderData] = useState({});
+
+  const {
+    query: { slug },
+  } = useRouter();
+
+  useEffect(() => {
+    // There is no need for this page to be pre-rendered so I use regular fetch here
+    fetch(`http://localhost:3000/api/orders/${slug}`)
+      .then((response) => response.json())
+      .then((data) => setOrderData(data));
+  }, []);
+
   return (
     <section className="wrapper flex flex-col gap-3 py-14 sm:flex-row">
       <div className="grid gap-8 flex-1">
-        <ul className="sm:grid sm:grid-cols-2 md:grid-cols-4">
-          <li className="flex justify-center items-center gap-2 md:flex-col md:gap-0">
+        <ul className="grid justify-items-start gap-5 sm:grid-cols-2 sm:justify-items-center md:grid-cols-4 md:items-start">
+          <li className="flex justify-center items-center gap-4 md:flex-col md:gap-0">
             Order ID
-            <span className="text-base text-neutral-600">10293940</span>
+            <span className="text-neutral-600 break-all text-base sm:text-center">
+              {orderData._id}
+            </span>
           </li>
-          <li className="flex justify-center items-center gap-2 md:flex-col md:gap-0">
+          <li className="flex justify-center items-center gap-4 md:flex-col md:gap-0">
             Customer
-            <span className="text-base text-neutral-600">John Doe</span>
+            <span className="text-neutral-600 break-words text-base sm:text-center">
+              {orderData.customer}
+            </span>
           </li>
-          <li className="flex justify-center items-center gap-2 md:flex-col md:gap-0">
-            Address <span className="text-base text-neutral-600">Some st.</span>
+          <li className="flex justify-center items-center gap-4 md:flex-col md:gap-0">
+            Address{" "}
+            <span className="text-neutral-600 break-words text-base sm:text-center">
+              {orderData.address}
+            </span>
           </li>
-          <li className="flex justify-center items-center gap-2 md:flex-col md:gap-0">
-            Total <span className="text-base text-neutral-600">$47.99</span>
+          <li className="flex justify-center items-center gap-4 md:flex-col md:gap-0">
+            Total{" "}
+            <span className="text-neutral-600 break-words text-base sm:text-center">
+              ${orderData.total}
+            </span>
           </li>
         </ul>
         <ul className="sm:grid sm:grid-cols-2 md:grid-cols-4">

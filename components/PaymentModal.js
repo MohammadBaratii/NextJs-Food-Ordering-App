@@ -1,14 +1,14 @@
+import { useState, useRef } from "react";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { reset } from "../store/cartSlice";
 
 const PaymentModal = ({ onHideModal, totalPrice }) => {
   const [message, setMessage] = useState({ type: null });
-
   const nameRef = useRef();
   const addressRef = useRef();
-
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +39,7 @@ const PaymentModal = ({ onHideModal, totalPrice }) => {
     }
 
     router.push(`/orders/${data._id}`);
+    dispatch(reset());
   };
 
   return (
