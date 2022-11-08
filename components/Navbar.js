@@ -37,9 +37,9 @@ const Navbar = () => {
               : undefined
           } text-3xl font-bold sm:text-4xl`}
         >
-          LOGO
+          <Link href="/">LOGO</Link>
         </h1>
-        <ul className="flex items-center gap-3">
+        <ul className="flex items-center gap-3 sm:gap-1">
           <li>
             <Link href="/">
               <a className="sm:p-3 sm:py-2 sm:rounded-md sm:transition sm:hover:bg-primary-2">

@@ -28,7 +28,7 @@ const Home = ({ pizzas }) => {
       </div>
       <Navbar />
       <Hero />
-      <PizzaList pizzas={pizzas} />
+      <PizzaList pizzas={pizzas} text="Featured Foods" />
       <Footer />
     </div>
   );
@@ -37,10 +37,11 @@ const Home = ({ pizzas }) => {
 export async function getStaticProps() {
   const res = await fetch("http://localhost:3000/api/products");
   const data = await res.json();
+  const featuredPizzas = data.products.filter((item) => item.isFeatured);
 
   return {
     props: {
-      pizzas: data.products,
+      pizzas: featuredPizzas,
     },
   };
 }

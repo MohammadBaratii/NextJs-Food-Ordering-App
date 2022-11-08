@@ -16,6 +16,10 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    isFeatured: {
+      type: Boolean,
+      default: false,
+    },
     prices: {
       type: [Number],
       required: true,

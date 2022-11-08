@@ -99,7 +99,7 @@ const ProductDetail = ({ pizza }) => {
                     {index === 2 && "large"}
                   </span>
                   <img
-                    src="../images/pizza.svg"
+                    src="../images/pizzas/pizza.svg"
                     alt="pizza"
                     style={{ width: 3 + index + "rem" }}
                   />

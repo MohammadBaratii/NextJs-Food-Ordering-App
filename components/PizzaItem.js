@@ -8,7 +8,7 @@ const PizzaItem = ({ _id, img, title, desc, prices }) => {
         <h3 className="font-bold">{title}</h3>
         <p className="text-rose-500 text-base">${prices[0]}</p>
       </div>
-      <p className="text-neutral-600 text-base">{desc}</p>
+      <p className="text-neutral-600 text-base">{desc.substring(0, 70)}...</p>
       <Link href={`/product/${_id}`}>
         <a
           className="block ml-auto p-5 py-1 bg-rose-500 text-white rounded-full transition text-lg hover:bg-rose-400

@@ -1,7 +1,7 @@
 import PizzaList from "../../components/PizzaList";
 
 const Menu = ({ pizzas }) => {
-  return <PizzaList pizzas={pizzas} />;
+  return <PizzaList pizzas={pizzas} text="Order Now" />;
 };
 
 export async function getStaticProps() {

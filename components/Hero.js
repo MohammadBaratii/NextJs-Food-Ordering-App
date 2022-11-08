@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Hero = () => {
   return (
     <main className="relative">
@@ -11,26 +13,28 @@ const Hero = () => {
             consequuntur maxime asperiores. <br /> Et animi maxime, unde
             voluptates blanditiis.
           </p>
-          <button className="flex items-center gap-2 p-5 py-2 bg-primary text-white rounded-full duration-300 hover:gap-4">
-            Order Now
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </button>
+          <Link href="/menu">
+            <a className="flex items-center gap-2 w-fit p-5 py-2 bg-primary text-white rounded-full duration-300 hover:gap-4">
+              Order Now
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         <img
-          src="./images/pizza.png"
+          src="./images/pizzas/pepperoni.png"
           alt="pizza"
           className="max-w-xs m-auto object-cover drop-shadow-[-20px_35px_25px_rgba(0,0,0,0.25)] sm:max-w-none sm:w-72 sm:h-72 md:w-[30rem] md:h-[30rem] sm:m-0"
         />

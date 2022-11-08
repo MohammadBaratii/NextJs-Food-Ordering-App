@@ -1,10 +1,10 @@
 import PizzaItem from "./PizzaItem";
 
-const PizzaList = ({ pizzas }) => {
+const PizzaList = ({ pizzas, text }) => {
   return (
     <section className="wrapper mt-5">
       <h2 className="flex justify-center items-center mb-4 text-3xl">
-        Order Pizza
+        {text}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
