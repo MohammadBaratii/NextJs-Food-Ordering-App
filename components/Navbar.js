@@ -39,14 +39,32 @@ const Navbar = () => {
         >
           LOGO
         </h1>
-        <ul className="flex items-center gap-3 sm:gap-5">
-          <li>Home</li>
-          <li>Menu</li>
-          <li>Contact</li>
+        <ul className="flex items-center gap-3">
+          <li>
+            <Link href="/">
+              <a className="sm:p-3 sm:py-2 sm:rounded-md sm:transition sm:hover:bg-primary-2">
+                Home
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/menu">
+              <a className="sm:p-3 sm:py-2 sm:rounded-md sm:transition sm:hover:bg-primary-2">
+                Menu
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact">
+              <a className="sm:p-3 sm:py-2 sm:rounded-md sm:transition sm:hover:bg-primary-2">
+                Contact
+              </a>
+            </Link>
+          </li>
           <li className="relative">
             <Link href="/cart">
-              <a>
-                <span className="absolute -top-3 -right-3 p-1 grid place-content-center bg-white min-w-[1.5rem] h-[1.5rem] rounded-full">
+              <a className="block sm:p-2 sm:rounded-md sm:transition sm:hover:bg-primary-2">
+                <span className="absolute -top-3 -right-3 p-1 grid place-content-center bg-white min-w-[1.5rem] h-[1.5rem] rounded-full sm:-top-1 sm:-right-1">
                   {totalAmount}
                 </span>
                 <svg
