@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   if (asPath === "/") {
     return (
       <Provider store={store}>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Provider>
     );
   }

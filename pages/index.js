@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
@@ -29,6 +30,27 @@ const Home = ({ pizzas }) => {
       <Navbar />
       <Hero />
       <PizzaList pizzas={pizzas} text="Featured Foods" />
+      <div className="wrapper pt-0">
+        <Link href="/menu">
+          <a className="flex items-center gap-2 w-fit m-auto p-5 py-2 bg-primary text-white rounded-full duration-300 hover:gap-4 ">
+            Explore More Foods
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </a>
+        </Link>
+      </div>
       <Footer />
     </div>
   );
