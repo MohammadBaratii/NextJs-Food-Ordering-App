@@ -15,7 +15,7 @@ const Orders = () => {
     fetch(`http://localhost:3000/api/orders/${slug}`)
       .then((response) => response.json())
       .then((data) => setOrderData(data));
-  }, []);
+  }, [slug]);
 
   return (
     <section className="wrapper flex flex-col gap-3 py-14 sm:flex-row">
