@@ -1,9 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const PizzaItem = ({ _id, img, title, desc, prices }) => {
   return (
     <li className="grid gap-1 max-w-md m-auto p-3 bg-gray-200  rounded-md">
-      <img src={img} alt={title} className="m-auto" />
+      <Image
+        src={img}
+        alt={title}
+        layout="responsive"
+        width={500}
+        height={500}
+        className="m-auto"
+      />
       <div className="flex justify-between items-center">
         <h3 className="font-bold">{title}</h3>
         <p className="text-rose-500 text-base">${prices[0]}</p>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Hero = () => {
@@ -33,11 +34,15 @@ const Hero = () => {
             </a>
           </Link>
         </div>
-        <img
-          src="./images/pizzas/pepperoni.png"
-          alt="pizza"
-          className="max-w-xs m-auto object-cover drop-shadow-[-20px_35px_25px_rgba(0,0,0,0.25)] sm:max-w-none sm:w-72 sm:h-72 md:w-[30rem] md:h-[30rem] sm:m-0"
-        />
+        <div className="relative max-w-xs w-64 h-64 m-auto drop-shadow-[-20px_35px_25px_rgba(0,0,0,0.25)] sm:w-72 sm:h-72 sm:m-0 md:max-w-none md:w-[30rem] md:h-[30rem] ">
+          <Image
+            src="/images/pizzas/pepperoni.png"
+            alt="pizza"
+            layout="fill"
+            objectFit="contain"
+            priority
+          />
+        </div>
       </section>
     </main>
   );

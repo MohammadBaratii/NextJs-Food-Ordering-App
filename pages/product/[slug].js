@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/cartSlice";
@@ -60,11 +61,9 @@ const ProductDetail = ({ pizza }) => {
 
   return (
     <section className="wrapper max-w-6xl flex flex-col justify-center items-center gap-5 md:flex-row md:gap-20">
-      <img
-        src={pizza.img}
-        alt={pizza.title}
-        className="max-w-xs m-auto md:m-0"
-      />
+      <div className="relative min-w-[20rem] min-h-[20rem] m-auto md:m-0">
+        <Image src={pizza.img} alt={pizza.title} layout="fill" />
+      </div>
       <div className="grid gap-8 max-w-2xl sm:gap-4 md:gap-8">
         <div className="grid gap-3">
           <h3 className="font-bold">{pizza.title}</h3>
@@ -98,10 +97,12 @@ const ProductDetail = ({ pizza }) => {
                     {index === 1 && "medium"}
                     {index === 2 && "large"}
                   </span>
-                  <img
-                    src="../images/pizzas/pizza.svg"
+
+                  <Image
+                    src="/images/pizzas/pizza.svg"
                     alt="pizza"
-                    style={{ width: 3 + index + "rem" }}
+                    width={48 + 12 * index}
+                    height={48 + 12 * index}
                   />
                 </button>
               );

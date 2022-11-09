@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -47,7 +48,7 @@ const Orders = () => {
         </ul>
         <ul className="sm:grid sm:grid-cols-2 md:grid-cols-4">
           <li className="grid justify-items-center my-4 sm:my-2 md:my-4">
-            <img src="/images/paid.png" alt="paid" className="w-10" />
+            <Image src="/images/paid.png" alt="paid" width={40} height={40} />
             <span className="text-base text-neutral-600">Payment</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,22 +64,27 @@ const Orders = () => {
             </svg>
           </li>
           <li className="grid justify-items-center my-4 animate-[blink_1.5s_linear_infinite] sm:my-2 md:my-4">
-            <img src="/images/bake.png" alt="baking" className="w-10" />
+            <Image src="/images/bake.png" alt="baking" width={40} height={40} />
             <span className="text-base text-neutral-600">Preparing</span>
           </li>
           <li className="grid justify-items-center my-4 sm:my-2 md:my-4">
-            <img
+            <Image
               src="/images/bike.png"
               alt="motorbike"
-              className="w-10 opacity-30"
+              width={40}
+              height={40}
+              className="opacity-30"
             />
+
             <span className="text-base text-black/30">On the way</span>
           </li>
           <li className="grid justify-items-center my-4 sm:my-2 md:my-4">
-            <img
+            <Image
               src="/images/delivered.png"
               alt="delivered"
-              className="w-10 opacity-30"
+              width={40}
+              height={40}
+              className="opacity-30"
             />
             <span className="text-base text-black/30">Delivered</span>
           </li>
