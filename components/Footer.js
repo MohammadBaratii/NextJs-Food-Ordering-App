@@ -20,10 +20,10 @@ const Footer = () => {
         <div>
           <h6 className="mb-3 text-white text-xl font-medium">Top brands</h6>
           <ul>
-            <li>McDonald's</li>
+            <li>McDonald&#39;s</li>
             <li>KFC</li>
             <li>Burger King</li>
-            <li>Papa John's</li>
+            <li>Papa John&#39;s</li>
             <li>Greggs</li>
             <li>Subway</li>
             <li>Favorite Chicken & Ribs</li>
