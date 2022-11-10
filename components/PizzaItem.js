@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const PizzaItem = ({ _id, img, title, desc, prices }) => {
   return (
-    <li className="grid gap-1 max-w-md m-auto p-3 bg-gray-200  rounded-md">
+    <li className="relative grid gap-1 max-w-md mx-auto p-3 pb-11 bg-gray-200 rounded-md">
       <Image
         src={img}
         alt={title}
@@ -19,7 +19,7 @@ const PizzaItem = ({ _id, img, title, desc, prices }) => {
       <p className="text-neutral-600 text-base">{desc.substring(0, 70)}...</p>
       <Link href={`/product/${_id}`}>
         <a
-          className="block ml-auto p-5 py-1 bg-rose-500 text-white rounded-full transition text-lg hover:bg-rose-400
+          className="absolute block bottom-3 right-3 p-5 py-1 bg-rose-500 text-white rounded-full transition text-lg hover:bg-rose-400
         "
         >
           Order
