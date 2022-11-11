@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import PizzaList from "../components/PizzaList";
+import server from "../config";
 
 const Home = ({ pizzas }) => {
   return (
@@ -57,7 +58,7 @@ const Home = ({ pizzas }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/products");
+  const res = await fetch(`${server}/api/products`);
   const data = await res.json();
   const featuredPizzas = data.products.filter((item) => item.isFeatured);
 

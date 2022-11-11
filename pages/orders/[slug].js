@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
+import server from "../../config";
 
 const Orders = () => {
   const [orderData, setOrderData] = useState({});
@@ -12,7 +13,7 @@ const Orders = () => {
 
   useEffect(() => {
     // There is no need for this page to be pre-rendered so I use regular fetch here
-    fetch(`http://localhost:3000/api/orders/${slug}`)
+    fetch(`${server}/api/orders/${slug}`)
       .then((response) => response.json())
       .then((data) => setOrderData(data));
   }, [slug]);
@@ -93,7 +94,7 @@ const Orders = () => {
       <div>
         <div className="sticky top-20 p-6 bg-neutral-600 text-white rounded-lg">
           <h5 className="mb-3 text-center text-2xl">
-            TOTAL: <span>$94.65</span>
+            TOTAL: <span>${orderData.total}</span>
           </h5>
           <button className="block m-auto p-3 py-1 bg-white text-primary rounded cursor-not-allowed">
             Paid!

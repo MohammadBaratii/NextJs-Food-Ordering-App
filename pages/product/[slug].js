@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/cartSlice";
+import server from "../../config";
 
 const ProductDetail = ({ pizza }) => {
   const [priceIndex, setPriceIndex] = useState(0);
@@ -159,7 +160,7 @@ const ProductDetail = ({ pizza }) => {
 };
 
 export const getStaticProps = async ({ params: { slug } }) => {
-  const response = await fetch(`http://localhost:3000/api/products/${slug}`);
+  const response = await fetch(`${server}/api/products/${slug}`);
   const data = await response.json();
 
   return {
@@ -170,7 +171,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 };
 
 export const getStaticPaths = async () => {
-  const response = await fetch("http://localhost:3000/api/products");
+  const response = await fetch(`${server}/api/products`);
   const data = await response.json();
 
   const paths = data.products.map((item) => {

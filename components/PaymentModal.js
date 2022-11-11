@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { reset } from "../store/cartSlice";
+import server from "../config";
 
 const PaymentModal = ({ onHideModal, totalPrice }) => {
   const [message, setMessage] = useState({ type: null });
@@ -18,7 +19,7 @@ const PaymentModal = ({ onHideModal, totalPrice }) => {
     }
     setMessage({ type: "pending" });
 
-    const response = await fetch("http://localhost:3000/api/orders", {
+    const response = await fetch(`${server}/api/orders`, {
       method: "POST",
       body: JSON.stringify({
         customer: nameRef.current.value,
