@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![image info](./page.png)
+# Food Ordering App
+A food ordering app with Next.js. In this app you can see featured foods in the main page or navigate to menu page to see all foods. You can order foods with 3 different sizes and extra ingredients.  
 
 ## Getting Started
 
